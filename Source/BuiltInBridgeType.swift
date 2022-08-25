@@ -43,6 +43,7 @@ extension NSNumber: _BuiltInBridgeType {
             } else {
                 // normal number
                 let formatter = NumberFormatter()
+                formatter.locale = Locale(identifier: "en_US")
                 formatter.numberStyle = .decimal
                 return formatter.number(from: str as String)
             }

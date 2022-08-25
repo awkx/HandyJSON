@@ -112,15 +112,15 @@ extension FloatPropertyProtocol {
 
 extension Float: FloatPropertyProtocol {}
 extension Double: FloatPropertyProtocol {}
-/*
+
 fileprivate let formatter: NumberFormatter = {
     let formatter = NumberFormatter()
     formatter.usesGroupingSeparator = false
     formatter.numberStyle = .decimal
     formatter.maximumFractionDigits = 16
+    formatter.locale = Locale(identifier: "en_US")
     return formatter
 }()
- */
 
 extension String: _BuiltInBasicType {
 
@@ -137,8 +137,8 @@ extension String: _BuiltInBasicType {
                     return "false"
                 }
             }
-//            return formatter.string(from: num)
-            return num.stringValue
+            return formatter.string(from: num)
+            // return num.stringValue
         case _ as NSNull:
             return nil
         default:
